@@ -24,7 +24,7 @@ export default function Hero() {
           {/* 名字 + 頭像並排 */}
           <div className="flex items-end justify-between gap-2 mb-4">
             <motion.h1 {...fadeUp(0.1)}
-              className="min-w-0 text-[2.8rem] font-bold text-[#1C2B3A] leading-[0.9] tracking-tight">
+              className="min-w-0 text-[2.8rem] md:text-[4rem] font-bold text-[#1C2B3A] leading-[0.9] tracking-tight">
               Vivian<br />
               <span className="font-light italic text-[#1C2B3A]/60">Chen</span>
             </motion.h1>
@@ -34,7 +34,7 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="shrink-0 relative w-40 h-48"
+              className="shrink-0 relative w-40 h-48 md:w-56 md:h-72"
             >
               <div className="absolute inset-0 rounded-full bg-[#D8B08C]/25 scale-90 translate-y-2" />
               <div className="absolute top-2 right-0 w-10 h-10 rounded-full bg-[#1C2B3A]/8" />

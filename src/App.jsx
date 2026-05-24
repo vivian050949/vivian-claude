@@ -14,11 +14,11 @@ import Footer from './components/Footer'
 export default function App() {
   const [previewMobile, setPreviewMobile] = useState(false)
   const [isRealMobile, setIsRealMobile] = useState(
-    typeof window !== 'undefined' && window.innerWidth < 768
+    typeof window !== 'undefined' && window.innerWidth < 1024
   )
 
   useEffect(() => {
-    const check = () => setIsRealMobile(window.innerWidth < 768)
+    const check = () => setIsRealMobile(window.innerWidth < 1024)
     window.addEventListener('resize', check)
     return () => window.removeEventListener('resize', check)
   }, [])
