@@ -1,4 +1,5 @@
 import { Mail, Download } from 'lucide-react'
+import { useEffect, useState } from 'react'
 
 function LinkedInIcon({ className }) {
   return (
@@ -12,8 +13,20 @@ function LinkedInIcon({ className }) {
 import { useMobile } from '../ViewContext'
 import { contact } from '../data'
 
+function useViews() {
+  const [views, setViews] = useState({ total: null, daily: null })
+  useEffect(() => {
+    fetch('/api/views', { method: 'POST' })
+      .then(r => r.json())
+      .then(setViews)
+      .catch(() => {})
+  }, [])
+  return views
+}
+
 export default function Footer() {
   const isMobile = useMobile()
+  const { total, daily } = useViews()
 
   return (
     <footer className={`bg-[#1C2B3A] ${isMobile ? 'py-12 px-5' : 'py-20'}`}>
@@ -64,6 +77,21 @@ export default function Footer() {
               <br />
               專案管理 · 數位轉型 · 營運優化
             </p>
+            <div className={`mt-4 flex gap-5 ${isMobile ? '' : 'justify-end'}`}>
+              <div>
+                <div className="text-[#D8B08C]/50 text-[0.6rem] tracking-widest uppercase mb-0.5">今日瀏覽</div>
+                <div className="text-white/50 text-sm font-medium">
+                  {daily != null ? daily.toLocaleString() : '—'}
+                </div>
+              </div>
+              <div className="w-px bg-white/10" />
+              <div>
+                <div className="text-[#D8B08C]/50 text-[0.6rem] tracking-widest uppercase mb-0.5">累積瀏覽</div>
+                <div className="text-white/50 text-sm font-medium">
+                  {total != null ? total.toLocaleString() : '—'}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
