@@ -38,9 +38,13 @@ export default function Hero() {
             >
               <div className="absolute inset-0 rounded-full bg-[#D8B08C]/25 scale-90 translate-y-2" />
               <div className="absolute top-2 right-0 w-10 h-10 rounded-full bg-[#1C2B3A]/8" />
-              <img src="/avatar.png" alt="Vivian Chen"
-                loading="eager"
-                className="absolute inset-0 w-full h-full object-contain object-bottom drop-shadow-md" />
+              <picture>
+                <source srcSet="/avatar.webp" type="image/webp" />
+                <img src="/avatar.png" alt="Vivian Chen"
+                  loading="eager"
+                  fetchpriority="high"
+                  className="absolute inset-0 w-full h-full object-contain object-bottom drop-shadow-md" />
+              </picture>
             </motion.div>
           </div>
 
@@ -127,10 +131,14 @@ export default function Hero() {
               style={{ width: 480, height: 480, top: '14%', left: '50%', transform: 'translateX(-44%)' }} />
             <div className="absolute z-0 rounded-full bg-[#D8B08C]/22"
               style={{ width: 130, height: 130, bottom: '18%', left: '4%' }} />
-            <img src="/avatar.png" alt="Vivian Chen"
-              loading="eager"
-              className="absolute z-10 bottom-0 left-1/2 -translate-x-[48%] object-contain drop-shadow-xl"
-              style={{ height: '96%', width: 'auto', maxWidth: 'none' }} />
+            <picture>
+              <source srcSet="/avatar.webp" type="image/webp" />
+              <img src="/avatar.png" alt="Vivian Chen"
+                loading="eager"
+                fetchpriority="high"
+                className="absolute z-10 bottom-0 left-1/2 -translate-x-[48%] object-contain drop-shadow-xl"
+                style={{ height: '96%', width: 'auto', maxWidth: 'none' }} />
+            </picture>
           </motion.div>
         </div>
 
